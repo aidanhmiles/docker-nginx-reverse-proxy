@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Bash 3.2 or higher
+LC_COLLATE=C
+while read -r; do
+  while [[ $REPLY =~ \$(([a-zA-Z_][a-zA-Z_0-9]*)|\{([a-zA-Z_][a-zA-Z_0-9]*)\})(.*) ]]; do
+	# this conditional finds $var e.g. no curly brackets
+    # if [[ -z ${BASH_REMATCH[3]} ]]; then   # found $var
+    #   printf %s "${REPLY%"$BASH_REMATCH"}${!BASH_REMATCH[2]}"
+    #   sleep 1
+	# else
+    if [[ -n ${BASH_REMATCH[3]} ]]; then  # found ${var}
+      printf %s "${REPLY%"$BASH_REMATCH"}${!BASH_REMATCH[3]}"
+    fi
+    REPLY=${BASH_REMATCH[4]}
+  done
+  printf "%s\n" "$REPLY"
+done

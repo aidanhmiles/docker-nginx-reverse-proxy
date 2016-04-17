@@ -1,0 +1,18 @@
+worker_processes 1;
+
+events { worker_connections 1024; }
+
+http {
+    include /etc/nginx/mime.types;
+	default_type  application/octet-stream;
+    sendfile off;
+
+    server {
+        listen ${NGINX_PORT};
+        root /usr/share/nginx/html;
+        location / {
+            proxy_pass http://${WEB_HOSTNAME}:${WEB_PORT};
+        }
+    }
+}
+
