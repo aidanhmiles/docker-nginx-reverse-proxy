@@ -9,5 +9,5 @@ COPY . /usr/local/share/
 ENTRYPOINT ["/bin/sh", "-c"]
 EXPOSE 80 443
 
-CMD ["./usr/local/share/docker-cmd"]
+CMD ["/usr/local/share/docker-cmd"]
 
