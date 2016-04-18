@@ -4,7 +4,9 @@ RUN apk add --update bash \
 && rm /etc/nginx/nginx.conf \
 && rm /etc/nginx/nginx.conf.default
 
-COPY . /usr/local/share/
+WORKDIR /usr/local/share/
+
+COPY . .
 
 ENTRYPOINT ["/bin/sh", "-c"]
 EXPOSE 80 443
