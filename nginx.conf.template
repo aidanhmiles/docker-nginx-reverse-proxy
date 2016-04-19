@@ -1,4 +1,4 @@
-user nginx;
+user nobody nogroup;
 worker_processes auto;
 
 events { worker_connections 1024; }
@@ -10,6 +10,7 @@ http {
 
     server {
         listen ${NGINX_PORT};
+		index index.html;
         root /usr/share/nginx/html;
         location ${PROXY_PATH} {
             proxy_pass http://${WEB_HOSTNAME}:${WEB_PORT};
