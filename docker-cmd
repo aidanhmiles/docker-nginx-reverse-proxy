@@ -1,9 +1,7 @@
 #!/bin/bash
 # this gets run from within the nginx Docker container, at /usr/local/share/envsub
 
-chmod 755 /usr/share/nginx/html
-
-chown -R www-data.www-data /usr/share/nginx/html/
+# chown -R www-data.www-data /usr/share/nginx/html/
 
 source ./env-default.sh \
 && ./envsub < ./nginx.conf.template > /etc/nginx/nginx.conf \
