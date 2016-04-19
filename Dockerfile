@@ -7,11 +7,11 @@ RUN apk add --update bash \
 # RUN addgroup -S www-data
 # RUN addgroup nginx www-data
 
-VOLUME /usr/share/nginx/html
+# VOLUME /usr/share/nginx/html/
 
 # RUN chown -R nginx:www-data /usr/share/nginx/html
-RUN chown -R nginx /usr/share/nginx/html/
-RUN chown -R nginx /usr/local/share/
+# RUN chown -R nginx /usr/share/nginx/html/
+# RUN chown -R nginx /usr/local/share/
 
 WORKDIR /usr/local/share/
 
@@ -21,6 +21,8 @@ COPY . .
 RUN source ./env-default.sh \
 && ./envsub < ./nginx.conf.template > /etc/nginx/nginx.conf \
 && cat /etc/nginx/nginx.conf
+
+RUN ls /usr/share/nginx/html/
 
 # USER nginx
 
