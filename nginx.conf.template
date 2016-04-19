@@ -8,13 +8,17 @@ http {
 	default_type  application/octet-stream;
     sendfile off;
 
+
     server {
         listen ${NGINX_PORT};
-		index index.html;
-        root /usr/share/nginx/html;
+
+		location / {
+			root /usr/share/nginx/html;
+		}
+
         location ${PROXY_PATH} {
-            proxy_pass http://${WEB_HOSTNAME}:${WEB_PORT};
-        }
+			proxy_pass http://${WEB_HOSTNAME}:${WEB_PORT};
+		}
     }
 }
 
