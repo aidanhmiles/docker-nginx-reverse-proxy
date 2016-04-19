@@ -4,11 +4,12 @@ RUN apk add --update bash \
 && rm /etc/nginx/nginx.conf \
 && rm /etc/nginx/nginx.conf.default
 
-RUN adduser -S www-data
+RUN addgroup -S www-data
+RUN addgroup nginx www-data
+
+RUN chown -R nginx:www-data /usr/share/nginx/html
 
 WORKDIR /usr/local/share/
-
-RUN chown -R www-data /usr/share/nginx/html
 
 COPY . .
 
