@@ -11,6 +11,8 @@ RUN chown -R nginx:www-data /usr/share/nginx/html
 
 WORKDIR /usr/local/share/
 
+USER nginx
+
 COPY . .
 
 ENTRYPOINT ["/bin/bash", "-c"]
