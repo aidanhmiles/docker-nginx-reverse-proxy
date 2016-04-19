@@ -4,6 +4,8 @@ RUN apk add --update bash \
 && rm /etc/nginx/nginx.conf \
 && rm /etc/nginx/nginx.conf.default
 
+RUN adduser -S www-data
+
 USER www-data
 
 WORKDIR /usr/local/share/
