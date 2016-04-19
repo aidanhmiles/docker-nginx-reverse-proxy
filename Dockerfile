@@ -15,14 +15,15 @@ WORKDIR /usr/local/share/
 
 COPY . .
 
+
 RUN source ./env-default.sh \
 && ./envsub < ./nginx.conf.template > /etc/nginx/nginx.conf \
 && cat /etc/nginx/nginx.conf
 
-USER nginx
+# USER nginx
 
-ENTRYPOINT ["/bin/bash", "-c"]
+# ENTRYPOINT ["/bin/bash", "-c"]
 EXPOSE 80 443
 
-CMD ["nginx", "-g", "'daemon off;'"]
+CMD ["nginx", "-g", "daemon off;"]
 
