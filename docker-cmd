@@ -1,5 +1,0 @@
-#!/bin/bash
-# this gets run from within the nginx Docker container, at /usr/local/share/envsub
-
-# chown -R www-data.www-data /usr/share/nginx/html/
-
