@@ -14,8 +14,6 @@ WORKDIR /usr/local/share/
 
 COPY . .
 
-USER nginx
-
 ENTRYPOINT ["/bin/bash", "-c"]
 EXPOSE 80 443
 
