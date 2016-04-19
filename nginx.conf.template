@@ -16,9 +16,9 @@ http {
 			root /usr/local/share/www;
 		}
 
-        #location ${PROXY_PATH} {
-		#	proxy_pass http://${WEB_HOSTNAME}:${WEB_PORT};
-		#}
+        location ${PROXY_PATH} {
+			proxy_pass http://${WEB_HOSTNAME}:${WEB_PORT};
+		}
     }
 }
 
