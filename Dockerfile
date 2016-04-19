@@ -9,13 +9,20 @@ RUN apk add --update bash \
 
 # RUN chown -R nginx:www-data /usr/share/nginx/html
 RUN chown -R nginx /usr/share/nginx/html
+RUN chown -R nginx /usr/local/share/
 
 WORKDIR /usr/local/share/
 
 COPY . .
 
+RUN source ./env-default.sh \
+&& ./envsub < ./nginx.conf.template > /etc/nginx/nginx.conf \
+&& cat /etc/nginx/nginx.conf
+
+USER nginx
+
 ENTRYPOINT ["/bin/bash", "-c"]
 EXPOSE 80 443
 
-CMD ["/usr/local/share/docker-cmd"]
+CMD ["nginx", "-g", "'daemon off;'"]
 
