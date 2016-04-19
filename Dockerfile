@@ -16,5 +16,5 @@ RUN source ./env-default.sh \
 ENTRYPOINT ["/bin/bash", "-c"]
 EXPOSE 80 443
 
-CMD ["chown", "-R", "nginx:nginx", "/usr/share/nginx/html", "&&" "nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
 
