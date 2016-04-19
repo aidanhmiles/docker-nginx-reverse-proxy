@@ -8,7 +8,7 @@ USER www-data
 
 WORKDIR /usr/local/share/
 
-RUN chown -R www-data.www-data /usr/local/share/
+RUN chown -R www-data.www-data /usr/share/nginx/html
 
 COPY . .
 
