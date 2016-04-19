@@ -1,4 +1,4 @@
-# user nobody nogroup;
+user www-data;
 worker_processes auto;
 
 events { worker_connections 1024; }

@@ -6,15 +6,13 @@ RUN apk add --update bash \
 
 RUN adduser -S www-data
 
-USER www-data
-
 WORKDIR /usr/local/share/
 
-RUN chown -R www-data.www-data /usr/share/nginx/html
+RUN chown -R www-data /usr/share/nginx/html
 
 COPY . .
 
-ENTRYPOINT ["/bin/sh", "-c"]
+ENTRYPOINT ["/bin/bash", "-c"]
 EXPOSE 80 443
 
 CMD ["/usr/local/share/docker-cmd"]
