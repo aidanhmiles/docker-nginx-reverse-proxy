@@ -17,14 +17,12 @@ WORKDIR /usr/local/share/
 
 COPY . .
 
-
 RUN source ./env-default.sh \
 && ./envsub < ./nginx.conf.template > /etc/nginx/nginx.conf \
 && cat /etc/nginx/nginx.conf
 
-RUN chmod 755 /usr/share/nginx/html/
-
-# USER nginx
+RUN chown -R nginx /usr/share/nginx/html
+RUN chmod -R 755 /usr/share/nginx/html
 
 # ENTRYPOINT ["/bin/bash", "-c"]
 EXPOSE 80 443
