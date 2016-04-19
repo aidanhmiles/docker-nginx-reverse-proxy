@@ -10,7 +10,7 @@ http {
     server {
         listen ${NGINX_PORT};
         root /usr/share/nginx/html;
-        location / {
+        location ${PROXY_PATH} {
             proxy_pass http://${WEB_HOSTNAME}:${WEB_PORT};
         }
     }

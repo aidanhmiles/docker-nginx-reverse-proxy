@@ -7,3 +7,4 @@
 export NGINX_PORT=${NGINX_PORT:-80}
 export WEB_PORT=${WEB_PORT:-8080}
 export WEB_HOSTNAME=${WEB_HOSTNAME:-web}
+export PROXY_PATH=${PROXY_PATH:-"/api"}
