@@ -13,7 +13,7 @@ http {
         listen ${NGINX_PORT};
 
 		location / {
-			root /usr/local/share/www;
+			root ${STATIC_FILES_PATH};
 		}
 
         location ${PROXY_PATH} {
