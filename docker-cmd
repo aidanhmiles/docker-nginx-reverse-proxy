@@ -4,7 +4,9 @@ source ./env-default.sh \
 && ./envsub < ./nginx.conf.template > /etc/nginx/nginx.conf \
 && cat /etc/nginx/nginx.conf \
 && install -m644 /webdata/* /usr/local/share/www \
-# && chown -R nginx:nginx /usr/local/share/www \
-# && chmod a+x /usr/local/share/www \
+&& chown -R nginx:nginx /usr/local/share/www \
+&& chmod a+x /usr/local/share/www;
+
+
+nginx -g "daemon off;"
 # && chmod -R 755 /usr/local/share/www \
-&& nginx -g 'daemon off;'
