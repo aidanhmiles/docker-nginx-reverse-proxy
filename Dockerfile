@@ -3,7 +3,8 @@ FROM nginx:stable-alpine
 RUN apk add --update bash \
 && rm /etc/nginx/nginx.conf \
 && rm /etc/nginx/nginx.conf.default \
-&& mkdir /usr/local/share/www
+&& mkdir /usr/local/share/www \
+&& mkdir /www
 
 WORKDIR /usr/local/share/
 
