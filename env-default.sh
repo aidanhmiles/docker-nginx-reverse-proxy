@@ -8,4 +8,4 @@ export NGINX_PORT=${NGINX_PORT:-80}
 export WEB_PORT=${WEB_PORT:-8080}
 export WEB_HOSTNAME=${WEB_HOSTNAME:-web}
 export PROXY_PATH=${PROXY_PATH:-"/api"}
-export STATIC_FILES_PATH=${PROXY_PATH:-"/usr/local/share/www"}
+export STATIC_FILES_PATH=${STATIC_FILES_PATH:-"/usr/local/share/www"}
