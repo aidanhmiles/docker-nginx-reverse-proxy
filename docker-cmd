@@ -3,11 +3,10 @@
 source ./env-default.sh \
 && ./envsub < ./nginx.conf.template > /etc/nginx/nginx.conf \
 && cat /etc/nginx/nginx.conf \
-&& install -m644 /www/* /usr/local/share/www \
 && chown -R nginx:nginx /usr/local/share/www \
-&& chmod -R 755 /usr/local/share/www;
-
-ls -l /usr/local/share/www;
-ls -l /www;
+&& chmod -R 755 /usr/local/share/www \
+&& chown -R nginx:nginx /www \
+&& chmod -R 755 /www;
+# && install -m644 /www/* /usr/local/share/www \
 
 nginx -g "daemon off;"
