@@ -1,7 +1,8 @@
 #!/bin/bash
 
+# make sure all necessary env vars are set
 source ./env-default.sh \
-&& ./envsub < ./nginx.conf.template > /etc/nginx/nginx.conf \
+&& ./envsub < ./${NGINX_CONFIG_TEMPLATE} > /etc/nginx/nginx.conf \
 && cat /etc/nginx/nginx.conf \
 && chown -R nginx:nginx /usr/local/share/www \
 && chmod -R 755 /usr/local/share/www \
